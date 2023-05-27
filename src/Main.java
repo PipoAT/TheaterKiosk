@@ -1,17 +1,31 @@
+import java.util.Scanner; // import scanner for user input
+
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
-        // Press Alt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        // initialize scanner to read user input
+        Scanner in = new Scanner(System.in);
 
-        // Press Shift+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
+        // declare variables
+        int age = 0; // user input for age
+        String trash = ""; // for if user inputs invalid type
 
-            // Press Shift+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
+        // output for user input
+        System.out.println("Please input your age: ");
+
+        if(in.hasNextInt()) {
+            age = in.nextInt(); // set age variable to user input
+            if (age >= 21) {
+                // if age is 21 or older, output they need wristband
+                System.out.println("You will get a wristband.");
+            }
+                // if under 21, nothing occurs
+        } else {
+            // if user inputs an invalid type of input, output error
+            trash = in.nextLine();
+            System.out.println("You inputted your age as: " + trash);
+            System.out.println("Please rerun program and enter age (int).");
         }
     }
 }
